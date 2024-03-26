@@ -1,22 +1,66 @@
 import "./Header.css"
+import { useState } from "react"
+import { IoReorderThree } from "react-icons/io5";
+import { FaXmark } from "react-icons/fa6";
+import { FaShopify } from "react-icons/fa";
+import "./Header.css";
 
 const Header = () => {
+  const [isIcon,setIsIcon]=useState(true)
+  const [iconStyle,setIconStyle]=useState({top:"7%"})
+  function toggleMenu(){
+      if(isIcon){
+        setIsIcon(false)
+        setIconStyle({top:"-100%"})
+      }else{
+        setIsIcon(true)
+        setIconStyle({top:"7%"}) 
+      }
+  }
   return (
-    <div className=" w-full mx-auto flex flex-wrap m-0 p-0 flex-col md:flex-row items-center bg-black-400">
-        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRofrTrAUzEpMZjfQUpLrOPHShYc5mZ4R9VTA&usqp=CAU" width="50px" height="50px" />
-        </a>
-        <div className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a className="mr-5">First Link</a>
-            <a className="mr-5">Second Link</a>
-            <a className="mr-5">Third Link</a>
-            <a className="mr-5">Fourth Link</a>
-        </div>
-        <div className='flex flex-row items-center mx-2 '> 
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpCKq1XnPYYDaUIlwlsvmLPZ-9-rdK28RToA&s' className='user-bg-image' width="40px" height="40px" alt="user" />
-            <button className="inline-flex items-center bg-blue-500 ml-2 rounded-lg border-0 py-2 px-3 mt-4 md:mt-0 text-white">Click Me</button>
-        </div>
-    </div>
+   
+    <nav className=" bg-green-600 text-white flex justify-between items-center w-full mx-auto py-1 nav-top-shadow z-1000">
+         <div className="md:m-3 m-1 flex flex-row items-center">
+         <FaShopify className="text-3xl"/>
+         <h1 className="ml-2">F&V</h1>
+         </div>
+         <div style={iconStyle} className="md:static md:min-h-fit absolute bg-green-600 min-h-[50vh] left-0 md:w-auto w-full top-[-100%] flex items-center px-5 md:my-2 sm:m-0 z-50" >
+            <ul className="flex flex-col md:flex-row md:items-center md:gap-[4vw] gap-8 ">
+              <li>
+                <a className="hover:text-gray-200" href="#" >
+                Products
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-200" href="#" >
+                Service
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-200 " href="#" >
+                Abouts
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-200" href="#" >
+                Service
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-200" href="#" >
+                Latest
+                </a>
+              </li>
+            </ul>
+         </div>
+         <div className="flex items-center gap-4 ">
+            <button className="bg-white md:mr-2 text-green-600 px-5 py-2 rounded-full hover:bg-green-200 border-solid border-2 border-green-100 hover:border-green-300">Sign In </button>
+            <div className="text-3xl cursor-pointer md:hidden">
+                {!isIcon ? <IoReorderThree onClick={toggleMenu} /> 
+                    :<FaXmark onClick={toggleMenu}/> }
+            </div>
+         </div>
+    </nav>
   )
 }
 

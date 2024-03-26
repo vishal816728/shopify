@@ -18,6 +18,7 @@ code {
 * {
   margin: 0;
   padding: 0;
+  overflow: none;
 }
 
 /* Chrome, Safari, Edge, Opera */

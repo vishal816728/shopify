@@ -4,9 +4,9 @@ import Footer from './Footer'
 // eslint-disable-next-line react/prop-types
 const Layout = ({children}) => {
   return (
-    <div>
+    <div className=''>
         <Header />
-        <main style={{minHeight:"75vh"}}>
+        <main  className='md:min-h-[80.3vh] min-h-[82.5vh]'>
         {children}
         </main>
         <Footer />
