@@ -8,7 +8,7 @@ const Home = () => {
         <Layout>
           <CustomCarousel />
           <h1 className='text-2xl font-semibold text-start p-2'>Vegetables&nbsp;:&nbsp;<span className='font-normal'>Fresh Deals</span></h1>
-          <div className='border-solid border-2 border-red-400 flex flex-wrap justify-center'>
+          <div className='border-solid border-2 border-red-400 flex flex-wrap md:justify-between place-content-center w-full'>
           {
             arr.map((item,index)=><FruitCard key={index}/>)
           }

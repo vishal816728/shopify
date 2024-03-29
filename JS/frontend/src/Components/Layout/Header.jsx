@@ -1,5 +1,5 @@
 import "./Header.css"
-import { useState } from "react"
+import { useState,useRef } from "react"
 import { IoReorderThree } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
 import { FaShopify } from "react-icons/fa";
@@ -8,13 +8,19 @@ import "./Header.css";
 const Header = () => {
   const [isIcon,setIsIcon]=useState(true)
   const [iconStyle,setIconStyle]=useState({top:"7%"})
+  const ref_width=useRef()
   function toggleMenu(){
       if(isIcon){
         setIsIcon(false)
         setIconStyle({top:"-100%"})
       }else{
         setIsIcon(true)
-        setIconStyle({top:"7%"}) 
+        if(ref_width.current.clientWidth>400){
+          setIconStyle({top:"6%"}) 
+        }else{
+          setIconStyle({top:"8%"}) 
+        }
+       
       }
   }
   return (
@@ -24,7 +30,7 @@ const Header = () => {
          <FaShopify className="text-3xl"/>
          <h1 className="ml-2">F&V</h1>
          </div>
-         <div style={iconStyle} className="md:static md:min-h-fit absolute bg-green-600 min-h-[50vh] left-0 md:w-auto w-full top-[-100%] flex items-center px-5 md:my-2 sm:m-0 z-50" >
+         <div ref={ref_width} style={iconStyle} className="md:static md:min-h-fit absolute bg-green-600 min-h-[50vh] left-0 md:w-auto w-full top-[-100%] flex items-center px-5 md:my-2 sm:m-0 z-50" >
             <ul className="flex flex-col md:flex-row md:items-center md:gap-[4vw] gap-8 ">
               <li>
                 <a className="hover:text-gray-200" href="#" >
