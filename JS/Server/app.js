@@ -4,12 +4,13 @@ import morgan from "morgan";
 import cors from "cors";
 import { engine } from 'express-handlebars';
 import studentRoutes from "./Routes/Registration/student.routes.js";
-const app=express();
+import ForgotPassword from "./Routes/ForgetPassword/forgotpassword.routes.js";
+const app = express();
 
 // global middlewares 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extends:false}));
+app.use(express.urlencoded({ extends: false }));
 app.use(helmet());
 app.use(morgan("tiny"))
 
@@ -19,7 +20,8 @@ app.set('views', './views');
 
 //Routes
 
-app.use("/api/v1/student",studentRoutes)
+app.use("/api/v1/student", studentRoutes)
+app.use("/api/v1/otp", ForgotPassword)
 
 
 export default app;
