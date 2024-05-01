@@ -27,6 +27,7 @@
     "nodemailer-express-handlebars": "^6.1.2",
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^3.1.0",
-    "puppeteer": "^22.7.1"
+    "puppeteer": "^22.7.1",
+    "razorpay": "^2.9.3"
   }
 }

@@ -6,6 +6,7 @@ const isAuthorized = async (req, res, next) => {
         if (req.headers && req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
             const token = req.headers.authorization.split(" ")[1]
             const decode = jwt.verify(token, process.env.JWT_SECRET)
+
             if (decode) {
                 switch (decode.Role) {
                     case "user":
